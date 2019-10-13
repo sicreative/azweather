@@ -1,39 +1,12 @@
-﻿/* Copyright (c) Microsoft Corporation. All rights reserved.
+﻿/*
+ 
+ Copyright (c) SC Lee GNU GPLv3
+ 
+ Some code copies from 
+ Copyright (c) Microsoft Corporation. All rights reserved.
    Licensed under the MIT License. */
 
-   /************************************************************************************************
-   Name: AvnetStarterKitReferenceDesign
-   Sphere OS: 19.05
-   This file contains the 'main' function. Program execution begins and ends there
-
-   Authors:
-   Peter Fenn (Avnet Engineering & Technology)
-   Brian Willess (Avnet Engineering & Technology)
-
-   Purpose:
-   Using the Avnet Azure Sphere Starter Kit demonstrate the following features
-
-   1. Read X,Y,Z accelerometer data from the onboard LSM6DSO device using the I2C Interface
-   2. Read X,Y,Z Angular rate data from the onboard LSM6DSO device using the I2C Interface
-   3. Read the barometric pressure from the onboard LPS22HH device using the I2C Interface
-   4. Read the temperature from the onboard LPS22HH device using the I2C Interface
-   5. Read the state of the A and B buttons
-   6. Read BSSID address, Wi-Fi AP SSID, Wi-Fi Frequency
-   *************************************************************************************************
-      Connected application features: When connected to Azure IoT Hub or IoT Central
-   *************************************************************************************************
-   7. Send X,Y,Z accelerometer data to Azure
-   8. Send barometric pressure data to Azure
-   9. Send button state data to Azure
-   10. Send BSSID address, Wi-Fi AP SSID, Wi-Fi Frequency data to Azure
-   11. Send the application version string to Azure
-   12. Control user RGB LEDs from the cloud using device twin properties
-   13. Control optional Relay Click relays from the cloud using device twin properties
-   14. Send Application version up as a device twin property
-   TODO
-   1. Add support for a OLED display
-   2. Add supprt for on-board light sensor
-   	 
+  
    *************************************************************************************************/
 
 #include <errno.h>
