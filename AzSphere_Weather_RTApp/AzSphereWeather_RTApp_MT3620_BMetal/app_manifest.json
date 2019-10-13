@@ -1,0 +1,12 @@
+{
+    "SchemaVersion": 1,
+    "Name": "IntercoreComms_RTApp_MT3620_BareMetal",
+    "ComponentId": "ec6232b9-26d5-a49f-9980-0bec91dd3385",
+    "EntryPoint": "/bin/app",
+    "Capabilities": {
+        //// A7 application connection
+        "AllowedApplicationConnections": [ "66961e20-9574-4d1d-a766-8ac740ea7a0a" ]
+        //"Adc": [ "ADC-CONTROLLER-0" ]
+    },
+    "ApplicationType": "RealTimeCapable"
+}

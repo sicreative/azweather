@@ -1,0 +1,12 @@
+{
+    "SchemaVersion": 1,
+    "Name": "LED_SoftPWM_RTApp_MT3620_BMetal",
+    "ComponentId": "09ffcb31-c819-02d2-9a6a-6768937c19d9",
+    "EntryPoint": "/bin/app",
+    "Capabilities": {
+        //// A7 application connection
+        "AllowedApplicationConnections": [ "66961e20-9574-4d1d-a766-8ac740ea7a0a" ],
+        "Gpio": [ 4,8,9,10 ]
+    },
+    "ApplicationType": "RealTimeCapable"
+}

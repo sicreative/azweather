@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="azure_iot_utilities.c" />
+    <ClCompile Include="bme680.c" />
+    <ClCompile Include="bme680_sensor.c" />
+    <ClCompile Include="device_twin.c" />
+    <ClCompile Include="file.c" />
+    <ClCompile Include="i2c.c" />
+    <ClCompile Include="lps22hh_reg.c" />
+    <ClCompile Include="lsm6dso_reg.c" />
+    <ClCompile Include="ltc1695.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="epoll_timerfd_utilities.c" />
+    <ClCompile Include="oled.c" />
+    <ClCompile Include="parson.c" />
+    <ClCompile Include="real_core.c" />
+    <ClCompile Include="sd1306.c" />
+    <ClCompile Include="smuart04l.c" />
+    <ClCompile Include="web_tcp_server.c" />
+    <ClCompile Include="adc.c" />
+    <ClCompile Include="led.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="azure_iot_utilities.h" />
+    <ClInclude Include="bme680.h" />
+    <ClInclude Include="bme680_defs.h" />
+    <ClInclude Include="bme680_sensor.h" />
+    <ClInclude Include="bsec_datatypes.h" />
+    <ClInclude Include="build_options.h" />
+    <ClInclude Include="file.h" />
+    <ClInclude Include="font.h" />
+    <ClInclude Include="connection_strings.h" />
+    <ClInclude Include="deviceTwin.h" />
+    <ClInclude Include="epoll_timerfd_utilities.h" />
+    <ClInclude Include="ltc1695.h" />
+    <ClInclude Include="real_core.h" />
+    <ClInclude Include="smuart04l.h" />
+    <ClInclude Include="oled.h" />
+    <ClInclude Include="parson.h" />
+    <ClInclude Include="sd1306.h" />
+    <ClInclude Include="web_tcp_server.h" />
+    <ClInclude Include="i2c.h" />
+    <ClInclude Include="lps22hh_reg.h" />
+    <ClInclude Include="lsm6dso_reg.h" />
+    <ClInclude Include="mt3620_avnet_dev.h" />
+    <ClInclude Include="mt3620_rdb.h" />
+    <ClInclude Include="applibs_versions.h" />
+    <ClInclude Include="adc.h" />
+    <ClInclude Include="led.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app_manifest.json" />
+    <None Include="HTMLPage.htm" />
+  </ItemGroup>
+</Project>
