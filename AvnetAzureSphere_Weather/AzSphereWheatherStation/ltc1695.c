@@ -260,8 +260,8 @@ uint8_t ltc1695_button_press(int pressUp)
 		}
 
 		uint16_t new = ltc1695_value + 200 + (LTC_1695_MAX_VOLTAGE - ltc1695_value) / 2;
-		if (new < LTC_1695_MIN_FAN_VOLTAGE)
-			new = LTC_1695_MIN_FAN_VOLTAGE;
+		if (new > LTC_1695_MAX_VOLTAGE)
+			new = LTC_1695_MAX_VOLTAGE;
 		ltc1695_set(new,false);
 	}else {
 		if (ltc1695_value == 0 && ltc1695_mode == LTC_1695_MODE_MANU) {
