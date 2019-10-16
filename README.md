@@ -21,3 +21,5 @@ This M4 applications work together with AvnetAzureSphere_Wether (High core) for
 
 ## Code of Conduct
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+
+More detail: https://www.hackster.io/ssclee/web-air-purifier-with-pm2-5-and-iaq-sensor-b177eb
