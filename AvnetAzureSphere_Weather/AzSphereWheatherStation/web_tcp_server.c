@@ -1,4 +1,4 @@
-/* Copyright (c) SC Lee. All rights reserved.
+﻿/* Copyright (c) SC Lee. All rights reserved.
 	Licensed under the GNU GPLv3 License.
 
 	part of code copies from Microsoft Sample Private Network Services
@@ -443,6 +443,7 @@ tr:nth-child(even) {\
 			background-color: #ffe6e6;\
 			}</style>\
 			<link  id=\"favicon\" rel=\"shortcut icon\" href = \"#\">\
+			<meta charset=\"UTF-8\">\
 			<meta http-equiv=\"Expires\" content = \"0\" >\
 			<meta http-equiv=\"refresh\" content=\"%d\" />\n\
 			<meta http-equiv= \"Content-type\" content=\"text/html\">\n\
@@ -480,17 +481,17 @@ tr:nth-child(even) {\
 <tr>\
 <td>PM1</td>\
 <td bgcolor=\"#%06x\"><font color=\"ddeedd\">%d</font></td>\
-<td>ppm</td>\
+<td>μg/㎥</td>\
 </tr>\
 <tr>\
 <td >PM2.5</td>\
 <td bgcolor=\"#%06x\"><font color=\"ddeedd\">%d</font></td>\
-<td>ppm</td>\
+<td>μg/㎥</td>\
 </tr>\
 <tr>\
 <td >PM10</td>\
 <td bgcolor=\"#%06x\"><font color=\"ddeedd\">%d</font></td>\
-<td>ppm</td>\
+<td>μg/㎥</td>\
 </tr>\
 <tr>\
 <td>Lighting</td>\
