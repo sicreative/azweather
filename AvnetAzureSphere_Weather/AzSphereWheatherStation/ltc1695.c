@@ -181,7 +181,7 @@ uint8_t ltc1695_retreve_fan_status() {
 	}
 	//Deserialization
 	ltc1695_mode = data[0];
-	memcpy(&ltc1695_manual_value , &data + 1,  2);
+	memcpy(&ltc1695_manual_value , data + 1*sizeof(uint8_t),  2);
 	//Force update LED
 	ltc1695_setmode(ltc1695_mode);
 	//Force update speed
@@ -259,8 +259,8 @@ uint8_t ltc1695_button_press(int pressUp)
 			return;
 		}
 
-		uint16_t new = ltc1695_value + 200 + (LTC_1695_MAX_VOLTAGE - ltc1695_value) / 2;
-		if (new > LTC_1695_MAX_VOLTAGE)
+		uint16_t new = ltc1695_value<LTC_1695_MIN_FAN_VOLTAGE? LTC_1695_MIN_FAN_VOLTAGE : ltc1695_value + 300 + (LTC_1695_MAX_VOLTAGE - ltc1695_value) / 5 ;
+		if (new > (LTC_1695_MAX_VOLTAGE - 200) )
 			new = LTC_1695_MAX_VOLTAGE;
 		ltc1695_set(new,false);
 	}else {
@@ -269,9 +269,12 @@ uint8_t ltc1695_button_press(int pressUp)
 			ltc1695_save_fan_status();
 			return;
 		}
-		uint16_t new = ltc1695_value - 200 - (LTC_1695_MAX_VOLTAGE - ltc1695_value) / 2;
+		uint16_t new = ltc1695_value - 300 - (LTC_1695_MAX_VOLTAGE - ltc1695_value)/5;
 		if (new < LTC_1695_MIN_FAN_VOLTAGE)
 			new = 0;
+		else if (new < (LTC_1695_MIN_FAN_VOLTAGE + 500))
+			new = LTC_1695_MIN_FAN_VOLTAGE;
+	 
 		ltc1695_set(new,false);
 	}
 
