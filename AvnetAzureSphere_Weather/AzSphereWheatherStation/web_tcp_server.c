@@ -402,13 +402,13 @@ static void LaunchWrite(webServer_ServerState *serverState)
 
 	
 
-
+	char* type = "text/html";
 	char* body;
 	char* html;
 	int result;
 	int code;
 
-
+	
 
 
 	
@@ -578,7 +578,40 @@ tr:nth-child(even) {\
 			return;
 		}
 	}
-	else {
+	else if (!strcmp(path, "/mobile.json")) {
+		type = "application/json";
+		code = 200;
+		int result = asprintf(&body, "{\"temperature\":%.2f,\"humidity\":%.2f,\
+\"pressure\":%.2f,\"altitude\":%.2f,\
+\"pm1\":%d,\"pm25\":%d,\"pm10\":%d,\
+\"light\":%.2f,\"iaq\":%d,\"eco2\":%d,\"evoc\":%d,\
+\"accuracy\":%d,\"gas\":%d,\"fan\":%d,\
+\"time\":%ld\
+}", 
+			bme680_temperature,
+			bme680_humidity,
+			pressure,
+			altitude,
+			smuart04l_getPM1(),
+			smuart04l_getPM2_5(),
+			smuart04l_getPM10(),
+			light_sensor,
+			bme680_iaq,
+			bme680_eco2,
+			bme680_evoc,
+			bme680_virtual_sensor_data[BME680_VIR_SENSOR_IAQ].accuracy,
+			(int)bme680_virtual_sensor_data[BME680_VIR_SENSOR_GAS].value,
+			ltc1695_value,
+			t);
+	
+
+		if (result == -1) {
+			ReportError("asprintf");
+			StopServer(serverState, EchoServer_StopReason_Error);
+			return;
+		}
+
+	}else {
 		code = 404;
 		result = asprintf(&body, "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">\n\
 			<html>\n\
@@ -599,9 +632,11 @@ tr:nth-child(even) {\
 
 	int bodylen = strlen(body);
 
+	
+
 	//header
 	char* status;
-	if (code == 202)
+	if (code == 200)
 		asprintf(&status, "%d %s", code, "Ok");
 	else
 		asprintf(&status, "%d %s", code, "Not found");
@@ -609,10 +644,10 @@ tr:nth-child(even) {\
 	result = asprintf(&html, "HTTP/1.1 %s \015\012\
 Server: AzSphere\015\012\
 Cache-Control: private, max-age=0\015\012\
-Content-Length:%d\
-Content-Type: text/html\015\012\
+Content-Length:%d\015\012\
+Content-Type: %s\015\012\
 Connection:close\015\012\
-\015\012%s",status,bodylen,body);
+\015\012%s",status,bodylen, type,body);
 
 	free(body);
 	free(status);

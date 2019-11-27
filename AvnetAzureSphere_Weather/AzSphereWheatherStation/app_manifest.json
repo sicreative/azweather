@@ -5,29 +5,29 @@
     "ComponentId": "66961e20-9574-4d1d-a766-8ac740ea7a0a",
     "EntryPoint": "/bin/app",
     "CmdArgs": [  ],
-    "Capabilities": {
-        //// M4 application's ComponentID
-        "AllowedApplicationConnections": [
-            "ec6232b9-26d5-a49f-9980-0bec91dd3385",
-            "09ffcb31-c819-02d2-9a6a-6768937c19d9"
-        ],
-        //// IoT Central application connection (Replace the xxxx placeholder with your IOTC application's ComponentID)
-        "AllowedConnections": [ "192.168.1.101", "iotc-62b32510-8707-4aeb-a938-6ca12a71a134.azure-devices.net" ],
-        "AllowedTcpServerPorts": [ 8080 ],
-        "AllowedUdpServerPorts": [],
-        //// "Gpio": [ 0, 4, 5, 8, 9, 10, 12, 13, 34, 1 ],
-        "Gpio": [  12, 13 ],
-        //// Uart for PM 2.5 sensor
-        "Uart": [ "ISU0" ],
-        "I2cMaster": [ "ISU2" ],
-        "SpiMaster": [],
-        "Adc": [ "ADC-CONTROLLER-0" ],
-        "Pwm": [ "PWM-CONTROLLER-1", "PWM-CONTROLLER-2" ],
-        "MutableStorage": { "SizeKB": 8 },
-        "WifiConfig": true,
-        "NetworkConfig": true,
-        "SystemTime": true
-    },
+  "Capabilities": {
+    //// M4 application's ComponentID
+    "AllowedApplicationConnections": [
+      "ec6232b9-26d5-a49f-9980-0bec91dd3385",
+      "09ffcb31-c819-02d2-9a6a-6768937c19d9"
+    ],
+    //// IoT Central application connection (Replace the xxxx placeholder with your IOTC application's ComponentID)
+    "AllowedConnections": [ "192.168.1.101", "iotc-62b32510-8707-4aeb-a938-6ca12a71a134.azure-devices.net" ],
+    "AllowedTcpServerPorts": [ 8080 ],
+    "AllowedUdpServerPorts": [],
+    //// "Gpio": [ 0, 4, 5, 8, 9, 10, 12, 13, 34, 1 ],
+    "Gpio": [ "$SAMPLE_BUTTON_1", "$SAMPLE_BUTTON_2" ],
+    //// Uart for PM 2.5 sensor
+    "Uart": [ "$SAMPLE_UART" ],
+    "I2cMaster": [ "$SAMPLE_I2C" ],
+    "SpiMaster": [],
+    "Adc": [ "$SAMPLE_POTENTIOMETER_ADC_CONTROLLER" ],
+    "Pwm": [ "$SAMPLE_LED_PWM_CONTROLLER1", "$SAMPLE_LED_PWM_CONTROLLER2" ],
+    "MutableStorage": { "SizeKB": 8 },
+    "WifiConfig": true,
+    "NetworkConfig": true,
+    "SystemTime": true
+  },
     "ApplicationType": "Default"
 
 
