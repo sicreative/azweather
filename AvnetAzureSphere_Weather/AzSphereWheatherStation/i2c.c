@@ -683,9 +683,12 @@ static int32_t platform_write(int *fD, uint8_t reg, uint8_t *bufp,
 	}
 	LogWebDebug("\n");
 #endif
+	
 
-	// Write the data to the device
-	int32_t retVal = I2CMaster_Write(*fD, lsm6dsOAddress, cmdBuffer, (size_t)len + 1);
+
+
+	 //Write the data to the device
+	int32_t retVal = I2CMaster_Write(i2cFd, lsm6dsOAddress, cmdBuffer, (size_t)len + 1);
 	if (retVal < 0) {
 		LogWebDebug("ERROR: platform_write: errno=%d (%s)\n", errno, strerror(errno));
 		return -1;
@@ -721,6 +724,15 @@ static int32_t platform_read(int *fD, uint8_t reg, uint8_t *bufp,
 	LogWebDebug("len: %d\n", len);
 ;
 #endif
+uint8_t* data_inc = bufp;
+uint8_t reg_addr_inc = reg;
+
+
+
+
+
+
+
 
 	// Set the register address to read
 	int32_t retVal = I2CMaster_Write(i2cFd, lsm6dsOAddress, &reg, 1);
@@ -730,12 +742,14 @@ static int32_t platform_read(int *fD, uint8_t reg, uint8_t *bufp,
 	}
 
 	// Read the data into the provided buffer
+	
 	retVal = I2CMaster_Read(i2cFd, lsm6dsOAddress, bufp, len);
 	if (retVal < 0) {
 		LogWebDebug("ERROR: platform_read(read step): errno=%d (%s)\n", errno, strerror(errno));
 		return -1;
 	}
-
+	
+	
 #ifdef ENABLE_READ_WRITE_DEBUG
 	LogWebDebug("Read returned: ");
 	for (int i = 0; i < len; i++) {
@@ -863,7 +877,7 @@ static int32_t lsm6dso_read_lps22hh_cx(void* ctx, uint8_t reg, uint8_t* data, ui
 		// sensor hub 1, so copy that into our data array.
 		uint8_t buffer[18];
 		lsm6dso_sh_read_data_raw_get(&dev_ctx, buffer);
-		data[i] = buffer[1];
+		data[i] = buffer[0];
 
 #ifdef ENABLE_READ_WRITE_DEBUG
 		LogWebDebug("Read %d bytes: ", len);
